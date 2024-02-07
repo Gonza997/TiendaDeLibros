@@ -54,6 +54,17 @@ function mostrarLibros(data, contenedorLibros) {
 
         titulo.textContent = libro.volumeInfo.title;
         autor.textContent = libro.volumeInfo.authors;
+        // Agregamos un botón, su contenido y tambien se la da una clase al boton
+        const botonCompra = document.createElement("buttom");
+        botonCompra.textContent = "COMPRAR";      
+        botonCompra.classList.add("claseDeCompra");
+        // Agregamos el icono del carrito
+        const iconoCarrito = document.createElement("img");
+        iconoCarrito.src = "/img/carrito.png";
+        iconoCarrito.alt = "Carrito Icono";
+        iconoCarrito.classList.add("claseDeIcono");
+        botonCompra.appendChild(iconoCarrito);
+
 
         if (libro.saleInfo.saleability == "NOT_FOR_SALE" || !libro.saleInfo.listPrice) {
             precio.textContent = "NO DISPONIBLE";
@@ -68,6 +79,7 @@ function mostrarLibros(data, contenedorLibros) {
         libroDiv.appendChild(titulo);
         libroDiv.appendChild(autor);
         libroDiv.appendChild(precio);
+        libroDiv.appendChild(botonCompra);
         contenedorLibros.appendChild(libroDiv);
     });
 }

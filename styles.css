@@ -28,4 +28,22 @@ footer {
 }
 .libroDiv h3 {
   color: red;
+}
+.libroDiv .claseDeCompra {
+  margin: auto;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  color: aliceblue;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 20px;
+  max-width: 150px;
+}
+.libroDiv .claseDeIcono {
+  height: 15px;
+  width: 15px;
+  margin-left: 5px;
 }/*# sourceMappingURL=styles.css.map */
