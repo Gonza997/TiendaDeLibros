@@ -3,6 +3,32 @@ let URLlibros = "https://www.googleapis.com/books/v1/volumes?q=";
 let URLPagos = "https://api.mocki.io/v1/b0435d6e";
 let cantidadPorPagina = 15;
 
+async function busquedaAvanzada(event) {
+    event.preventDefault(); // Evitar que el formulario se envíe y la página se recargue
+
+    const resultados = document.getElementById("resultadosDeBusqueda");
+    const busquedaDeNavbar = document.getElementById("busqueda").value;
+
+    const busqueda = busquedaDeNavbar.replace(/ /g, "+");
+    console.log(busqueda);
+
+
+    try {
+        resultados.innerHTML= " ";
+        const tituloInput = document.createElement("h1");
+
+        const busquedaFinal = await obtenerLibros(busqueda);
+        
+        tituloInput.textContent = busquedaDeNavbar;
+        resultados.appendChild(tituloInput);
+        mostrarLibros(busquedaFinal, resultados);
+    } catch (error) {
+        console.error("Error en la búsqueda avanzada: ", error);
+    }
+}
+
+
+
 async function iniciarBusqueda() {
     try {
         // Obtener la palabra aleatoria
@@ -60,7 +86,7 @@ function mostrarLibros(data, contenedorLibros) {
         } else {
             precio.textContent = libro.saleInfo.listPrice.amount + " " + libro.saleInfo.listPrice.currencyCode;
         }
-        
+
 
         imagen.src = libro.volumeInfo.imageLinks.thumbnail;
 
