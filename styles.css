@@ -1,0 +1,31 @@
+body {
+  background-color: aquamarine;
+  height: 100vh;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  bottom: 0px;
+}
+
+/*.libros{
+ display: flex;
+ justify-content: center;
+}*/
+.libroDiv {
+  border: 1px solid black;
+  margin: 5px;
+  padding: 1px;
+  max-width: 300px;
+  text-align: center;
+}
+.libroDiv img {
+  height: 100%;
+  max-height: 1200px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+.libroDiv h3 {
+  color: red;
+}/*# sourceMappingURL=styles.css.map */
