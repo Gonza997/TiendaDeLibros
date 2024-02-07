@@ -16,9 +16,7 @@ async function busquedaAvanzada(event) {
     try {
         resultados.innerHTML= " ";
         const tituloInput = document.createElement("h1");
-
-        const busquedaFinal = await obtenerLibros(busqueda);
-        
+        const busquedaFinal = await obtenerLibros(busqueda);        
         tituloInput.textContent = busquedaDeNavbar;
         resultados.appendChild(tituloInput);
         mostrarLibros(busquedaFinal, resultados);
