@@ -54,6 +54,8 @@ async function obtenerLibros(busqueda) {
     try {
         const response = await fetch(`${URLlibros}${busqueda}&maxResults=${cantidadPorPagina}&langRestrict=es`);
         const data = await response.json();
+        console.log(data);
+        generos(data);
         return data;
     } catch (error) {
         console.error("Error al obtener los libros:", error);
@@ -88,6 +90,21 @@ function mostrarLibros(data, contenedorLibros) {
         libroDiv.appendChild(precio);
         contenedorLibros.appendChild(libroDiv);
     });
+}
+function generos(data) {
+    const dropdonwMenu = document.getElementById("dropdown-menu");
+    let categorias = [];
+    data.items.forEach(libro => {
+        if (categorias.includes(libro.volumeInfo.categories)) {
+            
+        } else {
+            categorias.push(libro.volumeInfo.categories);
+            console.log(categorias);
+        }
+        
+    })
+
+
 }
 
 // Iniciar la búsqueda al cargar la página
