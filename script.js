@@ -54,7 +54,6 @@ async function obtenerLibros(busqueda) {
     try {
         const response = await fetch(`${URLlibros}${busqueda}&maxResults=${cantidadPorPagina}&langRestrict=es`);
         const data = await response.json();
-        console.log(data);
         generos(data);
         return data;
     } catch (error) {
@@ -78,15 +77,13 @@ function mostrarLibros(data, contenedorLibros) {
         autor.textContent = libro.volumeInfo.authors;
         // Agregamos un botón, su contenido y tambien se la da una clase al boton
         const botonCompra = document.createElement("buttom");
-        botonCompra.textContent = "COMPRAR";      
+        botonCompra.textContent = "COMPRAR";
         botonCompra.classList.add("claseDeCompra");
         // Agregamos el icono del carrito
         const iconoCarrito = document.createElement("img");
         iconoCarrito.src = "/img/carrito.png";
         iconoCarrito.alt = "Carrito Icono";
         iconoCarrito.classList.add("claseDeIcono");
-        botonCompra.appendChild(iconoCarrito);
-
         imagen.src = libro.volumeInfo.imageLinks.thumbnail;
 
         if (libro.saleInfo.saleability == "NOT_FOR_SALE" || !libro.saleInfo.listPrice) {
@@ -95,6 +92,7 @@ function mostrarLibros(data, contenedorLibros) {
             precio.textContent = libro.saleInfo.listPrice.amount + " " + libro.saleInfo.listPrice.currencyCode;
         }
 
+        botonCompra.appendChild(iconoCarrito);
         libroDiv.appendChild(imagen);
         libroDiv.appendChild(titulo);
         libroDiv.appendChild(autor);
@@ -104,20 +102,28 @@ function mostrarLibros(data, contenedorLibros) {
     });
 }
 function generos(data) {
-    const dropdonwMenu = document.getElementById("dropdown-menu");
-    let categorias = [];
-    data.items.forEach(libro => {
-        if (categorias.includes(libro.volumeInfo.categories)) {
-            
-        } else {
-            categorias.push(libro.volumeInfo.categories);
-            console.log(categorias);
-        }
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    dropdownMenu.innerHTML = ""; // Limpiar el contenido anterior del menú desplegable
+
+    const categoriasUnicas = {}; // Objeto para almacenar las categorías únicas
+
+    for (let i = 0; i < data.items.length; i++) {
+        const libro = data.items[i];
+        const categoria = libro.volumeInfo.categories;
         
-    })
-
-
+        // Verificar si la categoría no es undefined y no existe en el objeto categoriasUnicas
+        if (categoria && !categoriasUnicas[categoria]) {
+            categoriasUnicas[categoria] = true; // Agregar la categoría al objeto
+           
+            const newElementLi = document.createElement("li");
+            newElementLi.classList.add("li-categorias"); 
+            newElementLi.textContent = categoria; 
+            dropdownMenu.appendChild(newElementLi);
+        }
+    }
 }
+
+
 
 // Iniciar la búsqueda al cargar la página
 iniciarBusqueda();
