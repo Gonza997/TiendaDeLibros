@@ -8,6 +8,7 @@ footer {
   display: flex;
   justify-content: center;
   bottom: 0px;
+  background-color: rgb(185, 145, 145);
 }
 
 .libroDiv {
