@@ -92,17 +92,17 @@ function mostrarLibros(data, contenedorLibros) {
     });
 }
 function generos(data) {
-    //const dropdonwMenu = getElementById("dropdown-menu");
+    const dropdonwMenu = document.getElementById("dropdown-menu");
     let categorias = [];
-
-    if (categorias.includes(data.items.volumeInfo.categories)) {
+    data.items.forEach(libro => {
+        if (categorias.includes(libro.volumeInfo.categories)) {
+            
+        } else {
+            categorias.push(libro.volumeInfo.categories);
+            console.log(categorias);
+        }
         
-
-    }else{
-        categorias.push(data.items.volumeInfo.categories);
-    }
-    console.log(categorias);
-
+    })
 
 
 }
