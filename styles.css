@@ -1,6 +1,7 @@
 body {
   background-color: aquamarine;
   height: 100vh;
+  font-size: 10px;
 }
 
 footer {
@@ -9,16 +10,14 @@ footer {
   bottom: 0px;
 }
 
-/*.libros{
- display: flex;
- justify-content: center;
-}*/
 .libroDiv {
   border: 1px solid red;
   margin: 5px;
-  padding: 1px;
-  max-width: 300px;
   text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 170px;
+  min-width: 170px;
 }
 .libroDiv img {
   height: 100%;
@@ -28,9 +27,13 @@ footer {
 }
 .libroDiv h3 {
   color: red;
+  font-size: 1rem;
+}
+.libroDiv h5 {
+  font-size: 1rem;
 }
 .libroDiv .claseDeCompra {
-  margin: auto;
+  margin: auto auto 4px auto;
   border: none;
   border-radius: 5px;
   background-color: red;
@@ -39,7 +42,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3px 20px;
+  padding: 3px 15px;
   max-width: 150px;
 }
 .libroDiv .claseDeIcono {
