@@ -55,8 +55,8 @@
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Busqueda..." aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Busqueda</button>
+                        <input class="form-control me-2" type="search" placeholder="Busqueda..." id="busqueda" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit" onclick="busquedaAvanzada(event)">Busqueda</button>
                     </form>
                 </div>
             </div>
@@ -64,6 +64,9 @@
     </header>
     <main>
         <div class="container">
+            <div id="resultadosDeBusqueda">
+                
+            </div>
             <h2>Recomendaciones</h2>
             <div class="libros" id="libros"></div>
         </div>
