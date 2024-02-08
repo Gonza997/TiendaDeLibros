@@ -1,5 +1,5 @@
 - crear carrousel 
-- dar funcionalidad al boton de busqueda
+- dar funcionalidad al boton de busqueda (listo)
 - agregar boton de comprar
 - crear ingreso de usuario
 - crear carrito de compras
