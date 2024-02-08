@@ -6,26 +6,22 @@ let cantidadPorPagina = 15;
 async function busquedaAvanzada(event) {
     event.preventDefault(); // Evitar que el formulario se envíe y la página se recargue
 
-    const resultados = document.getElementById("resultadosDeBusqueda");
-    const busquedaDeNavbar = document.getElementById("busqueda").value;
-
-    const busqueda = busquedaDeNavbar.replace(/ /g, "+");
-    console.log(busqueda);
-
+    const resultados = document.getElementById("resultadosDeBusqueda"); // Seleccionar el elemento para mostrar los resultados
+    const busquedaDeNavbar = document.getElementById("busqueda").value; // Obtener el valor del campo de búsqueda
+    const busqueda = busquedaDeNavbar.replace(/ /g, "+"); // Reemplazar los espacios en blanco por "+"
+    console.log(busqueda); // Imprimir el término de búsqueda en la consola
 
     try {
-        resultados.innerHTML= " ";
-        const tituloInput = document.createElement("h1");
-        const busquedaFinal = await obtenerLibros(busqueda);        
-        tituloInput.textContent = busquedaDeNavbar;
-        resultados.appendChild(tituloInput);
-        mostrarLibros(busquedaFinal, resultados);
+        resultados.innerHTML = " "; // Limpiar el contenido anterior de resultados
+        const tituloInput = document.createElement("h1"); // Crear un elemento <h1> para mostrar el título de la búsqueda
+        const busquedaFinal = await obtenerLibros(busqueda); // Obtener los libros correspondientes al término de búsqueda
+        tituloInput.textContent = busquedaDeNavbar; // Establecer el texto del título como el término de búsqueda
+        resultados.appendChild(tituloInput); // Agregar el título al contenedor de resultados
+        mostrarLibros(busquedaFinal, resultados); // Mostrar los libros encontrados en la página
     } catch (error) {
-        console.error("Error en la búsqueda avanzada: ", error);
+        console.error("Error en la búsqueda avanzada: ", error); // Manejar cualquier error que ocurra durante la búsqueda
     }
 }
-
-
 
 async function iniciarBusqueda() {
     try {
@@ -78,15 +74,13 @@ function mostrarLibros(data, contenedorLibros) {
 
         titulo.textContent = libro.volumeInfo.title;
         autor.textContent = libro.volumeInfo.authors;
+        imagen.src = libro.volumeInfo.imageLinks.thumbnail;
 
         if (libro.saleInfo.saleability == "NOT_FOR_SALE" || !libro.saleInfo.listPrice) {
             precio.textContent = "NO DISPONIBLE";
         } else {
             precio.textContent = libro.saleInfo.listPrice.amount + " " + libro.saleInfo.listPrice.currencyCode;
         }
-
-
-        imagen.src = libro.volumeInfo.imageLinks.thumbnail;
 
         libroDiv.appendChild(imagen);
         libroDiv.appendChild(titulo);
