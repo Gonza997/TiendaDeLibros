@@ -1,6 +1,6 @@
 - crear carrousel 
 - dar funcionalidad al boton de busqueda (Listo)
-- agregar boton de comprar
+- agregar boton de comprar(Listo)
 - crear ingreso de usuario
 - crear carrito de compras
 - crear carrousel de recomendaciones
