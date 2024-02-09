@@ -11,7 +11,12 @@ footer {
   background-color: rgb(185, 145, 145);
 }
 
-.libroDiv {
+.libros {
+  display: flex;
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+  scroll-snap-type: x mandatory; /* Hace que cada elemento del carrusel se desplace en una sola "parada" */
+}
+.libros .libroDiv {
   border: 1px solid red;
   margin: 5px;
   text-align: center;
@@ -33,26 +38,26 @@ footer {
       transform: scale(1.2);
   }*/
 }
-.libroDiv .imgLibro {
+.libros .libroDiv .imgLibro {
   width: 170px;
   overflow: hidden;
 }
-.libroDiv .imgLibro img {
+.libros .libroDiv .imgLibro img {
   width: 100%;
   height: auto;
   transition: transform 0.3s;
 }
-.libroDiv .imgLibro:hover img {
+.libros .libroDiv .imgLibro:hover img {
   transform: scale(1.2);
 }
-.libroDiv h3 {
+.libros .libroDiv h3 {
   color: red;
   font-size: 1rem;
 }
-.libroDiv h5 {
+.libros .libroDiv h5 {
   font-size: 1rem;
 }
-.libroDiv .claseDeCompra {
+.libros .libroDiv .claseDeCompra {
   margin: auto auto 4px auto;
   border: none;
   border-radius: 5px;
@@ -65,7 +70,7 @@ footer {
   padding: 3px 15px;
   max-width: 150px;
 }
-.libroDiv .claseDeIcono {
+.libros .libroDiv .claseDeIcono {
   height: 15px;
   width: 15px;
   margin-left: 5px;

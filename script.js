@@ -9,14 +9,14 @@ async function busquedaAvanzada(event) {
     const resultados = document.getElementById("resultadosDeBusqueda"); // Seleccionar el elemento para mostrar los resultados
     const busquedaDeNavbar = document.getElementById("busqueda").value; // Obtener el valor del campo de búsqueda
     const busqueda = busquedaDeNavbar.replace(/ /g, "+"); // Reemplazar los espacios en blanco por "+"
+    const BusquedaImput = document.getElementById("BusquedaImput");
     console.log(busqueda); // Imprimir el término de búsqueda en la consola
 
     try {
         resultados.innerHTML = " "; // Limpiar el contenido anterior de resultados
         const tituloInput = document.createElement("h1"); // Crear un elemento <h1> para mostrar el título de la búsqueda
         const busquedaFinal = await obtenerLibros(busqueda); // Obtener los libros correspondientes al término de búsqueda
-        tituloInput.textContent = busquedaDeNavbar; // Establecer el texto del título como el término de búsqueda
-        resultados.appendChild(tituloInput); // Agregar el título al contenedor de resultados
+        BusquedaImput.textContent = busquedaDeNavbar; // Establecer el texto del título como el término de búsqueda
         mostrarLibros(busquedaFinal, resultados); // Mostrar los libros encontrados en la página
     } catch (error) {
         console.error("Error en la búsqueda avanzada: ", error); // Manejar cualquier error que ocurra durante la búsqueda
@@ -68,7 +68,7 @@ function mostrarLibros(data, contenedorLibros) {
         const libroDiv = document.createElement("div");
         const imgDiv = document.createElement("div");
         libroDiv.classList.add("libroDiv");
-        imgDiv.classList.add("imgLibro"); 
+        imgDiv.classList.add("imgLibro");
 
         const titulo = document.createElement("h3");
         const autor = document.createElement("p");
@@ -113,14 +113,14 @@ function generos(data) {
     for (let i = 0; i < data.items.length; i++) {
         const libro = data.items[i];
         const categoria = libro.volumeInfo.categories;
-        
+
         // Verificar si la categoría no es undefined y no existe en el objeto categoriasUnicas
         if (categoria && !categoriasUnicas[categoria]) {
             categoriasUnicas[categoria] = true; // Agregar la categoría al objeto
-           
+
             const newElementLi = document.createElement("li");
-            newElementLi.classList.add("li-categorias"); 
-            newElementLi.textContent = categoria; 
+            newElementLi.classList.add("li-categorias");
+            newElementLi.textContent = categoria;
             dropdownMenu.appendChild(newElementLi);
         }
     }
