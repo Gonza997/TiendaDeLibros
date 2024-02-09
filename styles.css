@@ -19,15 +19,31 @@ footer {
   width: fit-content;
   max-width: 170px;
   min-width: 170px;
-  overflow: hidden; /*Oculta cualquier parte de la imagen que se salga del contenedor*/
+  overflow: hidden;
+  /*Oculta cualquier parte de la imagen que se salga del contenedor*/
+  /*img {
+      height: 100%;
+      max-height: 1200px;
+      width: auto;
+      transition-property: all;
+      transition-duration: 0.5s;
+      transition-timing-function: linear;
+  }
+
+  img:hover {
+      transform: scale(1.2);
+  }*/
 }
-.libroDiv img {
-  height: 100%;
-  max-height: 1200px;
-  width: auto;
+.libroDiv .imgLibro {
+  width: 170px;
+  overflow: hidden;
+}
+.libroDiv .imgLibro img {
+  width: 100%;
+  height: auto;
   transition: transform 0.3s;
 }
-.libroDiv img:hover {
+.libroDiv .imgLibro:hover img {
   transform: scale(1.2);
 }
 .libroDiv h3 {
