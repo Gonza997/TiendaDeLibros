@@ -66,7 +66,9 @@ async function obtenerLibros(busqueda) {
 function mostrarLibros(data, contenedorLibros) {
     data.items.forEach(libro => {
         const libroDiv = document.createElement("div");
+        const imgDiv = document.createElement("div");
         libroDiv.classList.add("libroDiv");
+        imgDiv.classList.add("imgLibro"); 
 
         const titulo = document.createElement("h3");
         const autor = document.createElement("p");
@@ -93,7 +95,8 @@ function mostrarLibros(data, contenedorLibros) {
         }
 
         botonCompra.appendChild(iconoCarrito);
-        libroDiv.appendChild(imagen);
+        imgDiv.appendChild(imagen);
+        libroDiv.appendChild(imgDiv);
         libroDiv.appendChild(titulo);
         libroDiv.appendChild(autor);
         libroDiv.appendChild(precio);

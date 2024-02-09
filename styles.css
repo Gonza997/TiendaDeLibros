@@ -1,5 +1,3 @@
-@charset "UTF-8";
-/*Modificacion N°1*/
 body {
   background-color: aquamarine;
   height: 100vh;
@@ -20,18 +18,15 @@ body {
   border: 1px solid red;
   margin: 5px;
   text-align: center;
-  flex: 0 0 auto; /* Los elementos del carrusel no deben cambiar de tamaño */
   width: -moz-fit-content;
   width: fit-content;
   max-width: 170px;
   min-width: 170px;
-  scroll-snap-align: start; /* Alinea los elementos del carrusel al inicio */
-  overflow: hidden;
-  /*Oculta cualquier parte de la imagen que se salga del contenedor*/
+  overflow: hidden; /*Oculta cualquier parte de la imagen que se salga del contenedor*/
 }
 .libroDiv img {
   height: 100%;
-  max-height: 50%;
+  max-height: 1200px;
   width: auto;
   transition: transform 0.3s;
 }
@@ -62,13 +57,6 @@ body {
   height: 15px;
   width: 15px;
   margin-left: 5px;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  bottom: 0px;
-  background-color: rgb(185, 145, 145);
 }
 
 .li-categorias {
