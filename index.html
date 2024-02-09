@@ -41,13 +41,16 @@
                                 Generos
                             </a>
                             <!-- Actualizar por generos de busqueda -->
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <ul class="dropdown-menu" id="dropdown-menu">
+                                <!--
+                                    <li><a class="dropdown-item" href="#">genero1</a></li>
+                                <li><a class="dropdown-item" href="#">genero2</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+                                -->                                
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -55,8 +58,8 @@
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Busqueda..." aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Busqueda</button>
+                        <input class="form-control me-2" type="search" placeholder="Busqueda..." id="busqueda" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit" onclick="busquedaAvanzada(event)">Busqueda</button>
                     </form>
                 </div>
             </div>
@@ -64,13 +67,16 @@
     </header>
     <main>
         <div class="container">
+            <div id="resultadosDeBusqueda">
+                
+            </div>
             <h2>Recomendaciones</h2>
             <div class="libros" id="libros"></div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2023 Tiendita de Libros de Gonza</p>
+        <p>&copy; 2023 Tiendita de Libros de Gonza más compañia</p>
     </footer>
     <script src="script.js"></script>
 </body>
