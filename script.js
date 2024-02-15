@@ -75,17 +75,28 @@ function mostrarLibros(data, contenedorLibros) {
         const precio = document.createElement("h5");
         const imagen = document.createElement("img");
 
-        titulo.textContent = libro.volumeInfo.title;
+        // Limitamos el título a 12 palabras
+        const palabrasTitulo = libro.volumeInfo.title.split(' ');
+        let tituloLimitado = palabrasTitulo.slice(0, 12).join(' ');
+        if (palabrasTitulo.length > 12) {
+            tituloLimitado += '...';
+        }
+        titulo.textContent = tituloLimitado;
+        
         autor.textContent = libro.volumeInfo.authors;
-        // Agregamos un botón, su contenido y tambien se la da una clase al boton
-        const botonCompra = document.createElement("buttom");
+
+        // Agregamos un botón para comprar
+        const botonCompra = document.createElement("button");
         botonCompra.textContent = "COMPRAR";
         botonCompra.classList.add("claseDeCompra");
-        // Agregamos el icono del carrito
+
+        // Agregamos el icono del carrito al botón
         const iconoCarrito = document.createElement("img");
         iconoCarrito.src = "/img/carrito.png";
-        iconoCarrito.alt = "Carrito Icono";
+        iconoCarrito.alt = "Icono de carrito";
         iconoCarrito.classList.add("claseDeIcono");
+        botonCompra.appendChild(iconoCarrito);
+
         imagen.src = libro.volumeInfo.imageLinks.thumbnail;
 
         if (libro.saleInfo.saleability == "NOT_FOR_SALE" || !libro.saleInfo.listPrice) {
@@ -94,7 +105,6 @@ function mostrarLibros(data, contenedorLibros) {
             precio.textContent = libro.saleInfo.listPrice.amount + " " + libro.saleInfo.listPrice.currencyCode;
         }
 
-        botonCompra.appendChild(iconoCarrito);
         imgDiv.appendChild(imagen);
         libroDiv.appendChild(imgDiv);
         libroDiv.appendChild(titulo);
@@ -104,6 +114,8 @@ function mostrarLibros(data, contenedorLibros) {
         contenedorLibros.appendChild(libroDiv);
     });
 }
+
+
 function generos(data) {
     const dropdownMenu = document.getElementById("dropdown-menu");
     dropdownMenu.innerHTML = ""; // Limpiar el contenido anterior del menú desplegable
