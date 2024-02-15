@@ -129,9 +129,7 @@ function mostrarLibros(data, contenedorLibros) {
             // El libro no tiene imágenes, 
             imagen.src = "./img/No_existe_imagen.png";
 
-        }
-
-        
+        }        
 
         if (libro.saleInfo.saleability == "NOT_FOR_SALE" || !libro.saleInfo.listPrice) {
             precio.textContent = "NO DISPONIBLE";
