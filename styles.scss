@@ -20,14 +20,16 @@ footer {
 
     .libroDiv {
 
-        border: 1px solid red;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        border-radius: 5px;
         margin: 5px;
         text-align: center;
         width: fit-content;
         max-width: 170px;
         min-width: 170px;
-        overflow: hidden;
-        /*Oculta cualquier parte de la imagen que se salga del contenedor*/
+        overflow: hidden; //Oculta cualquier parte de la imagen que se salga del contenedor
+
 
         .imgLibro {
             width: 170px;
