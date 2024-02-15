@@ -31,14 +31,14 @@ function ventanaLogin() {
     const contrasena = contrasenaInput.value;
 
     if (nombreUsuario && contrasena) {
-      const usuario = {
+      const usuarioBoton = {
         nombre: nombreUsuario,
         contrasen: contrasena,
       };
 
-      console.log("Usuario registrado: ", usuario);
+      console.log("Usuario registrado: ", usuarioBoton);
       // Llamamos a la funcion cerrar ventana
-        cerrarVentanaLogin();
+      cerrarVentanaLogin();
 
     } else {
       alert("Debe ingresar un nombre de usuario y una contraseña.");
@@ -60,6 +60,6 @@ function ventanaLogin() {
 }
 
 function cerrarVentanaLogin(){
-    const tarjetaContainer = document.querySelector("tarjeta-container");
+    const tarjetaContainer = document.querySelector(".tarjeta-container");
     tarjetaContainer.remove();
 }
