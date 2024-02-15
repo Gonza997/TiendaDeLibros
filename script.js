@@ -3,6 +3,21 @@ let URLlibros = "https://www.googleapis.com/books/v1/volumes?q=";
 let URLPagos = "https://api.mocki.io/v1/b0435d6e";
 let cantidadPorPagina = 15;
 
+const usuarios = {
+    "Gonzalo": {
+        "contraseña": "contraseña1",
+        "productosComprados": ["producto1", "producto2"]
+    },
+    "Nelson": {
+        "contraseña": "contraseña2",
+        "productosComprados": ["producto3", "producto4"]
+    },
+    "Franco": {
+        "contraseña": "contraseña3",
+        "productosComprados": ["producto5"]
+    }
+};
+
 async function busquedaAvanzada(event) {
     event.preventDefault(); // Evitar que el formulario se envíe y la página se recargue
 
@@ -82,8 +97,19 @@ function mostrarLibros(data, contenedorLibros) {
             tituloLimitado += '...';
         }
         titulo.textContent = tituloLimitado;
-        
-        autor.textContent = libro.volumeInfo.authors;
+
+        const autores = libro.volumeInfo.authors; // Obtener la información de autores
+        let limiteAutores = ''; // Inicializar una cadena para los autores limitados
+
+        // Verificar si la información de autores está definida y es un array con al menos un autor
+        if (Array.isArray(autores) && autores.length > 0) {
+            limiteAutores = autores.slice(0, 2).join(', '); // Obtener los primeros dos autores y unirlos en una cadena
+        } else {
+            limiteAutores = 'Autor desconocido'; // Si no hay información de autores, establecer un valor predeterminado
+        }
+
+        autor.textContent = limiteAutores; // Asignar la cadena de autores al elemento autor
+
 
         // Agregamos un botón para comprar
         const botonCompra = document.createElement("button");
@@ -97,7 +123,15 @@ function mostrarLibros(data, contenedorLibros) {
         iconoCarrito.classList.add("claseDeIcono");
         botonCompra.appendChild(iconoCarrito);
 
-        imagen.src = libro.volumeInfo.imageLinks.thumbnail;
+        if (libro.volumeInfo.imageLinks && libro.volumeInfo.imageLinks.thumbnail) {//verificar si el libro tiene imagenes
+            imagen.src = libro.volumeInfo.imageLinks.thumbnail;
+        } else {
+            // El libro no tiene imágenes, 
+            imagen.src = "./img/No_existe_imagen.png";
+
+        }
+
+        
 
         if (libro.saleInfo.saleability == "NOT_FOR_SALE" || !libro.saleInfo.listPrice) {
             precio.textContent = "NO DISPONIBLE";
