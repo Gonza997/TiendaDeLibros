@@ -97,7 +97,8 @@ footer {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000; /* Ajusta según sea necesario para que esté por encima del resto del contenido */
+  z-index: 1000;
+  /* Ajusta según sea necesario para que esté por encima del resto del contenido */
 }
 
 .tarjeta-sub-container {
@@ -122,4 +123,8 @@ footer {
   padding: 10px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.btn-outline-success {
+  margin: 5px;
 }/*# sourceMappingURL=styles.css.map */
