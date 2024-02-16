@@ -29,20 +29,20 @@ function ventanaLogin() {
   botonSeguir.addEventListener("click", function () {
     const nombreUsuario = nombreInput.value;
     const contrasena = contrasenaInput.value;
-
-    if (nombreUsuario && contrasena) {
-      const usuarioBoton = {
-        nombre: nombreUsuario,
-        contrasen: contrasena,
-      };
-
-      console.log("Usuario registrado: ", usuarioBoton);
-      // Llamamos a la funcion cerrar ventana
-      cerrarVentanaLogin();
-
-    } else {
-      alert("Debe ingresar un nombre de usuario y una contraseña.");
+    let b = 1;
+    usuarios.forEach((indice) => {
+      if (nombreUsuario == indice.usuario && contrasena == indice.contrasenia) {
+        alert("Seguir");
+        b = 0;
+        // Llamamos a la funcion cerrar ventana
+        cerrarVentanaLogin();
+        return;
+      }
+    });
+    if (b == 1) {
+      alert("Error");
     }
+
   });
 
   // Agregamos elementos en la tarjeta
@@ -56,25 +56,27 @@ function ventanaLogin() {
 
   // Agregamos la tarjeta al html
   document.body.appendChild(tarjetaContainer);
-
 }
 
-function cerrarVentanaLogin(){
-    const tarjetaContainer = document.querySelector(".tarjeta-container");
-    tarjetaContainer.remove();
+function cerrarVentanaLogin() {
+  const tarjetaContainer = document.querySelector(".tarjeta-container");
+  tarjetaContainer.remove();
 }
 
-const usuarios = {
-  "Gonzalo": {
-      "contraseña": "contraseña1",
-      "productosComprados": ["producto1", "producto2"]
+const usuarios = [
+  {
+    usuario: "Gonzalo",
+    contrasenia: "contraseña1",
+    productosComprados: ["producto1", "producto2"],
   },
-  "Nelson": {
-      "contraseña": "contraseña2",
-      "productosComprados": ["producto3", "producto4"]
+  {
+    usuario: "Nelson",
+    contrasenia: "contraseña1",
+    productosComprados: ["producto1", "producto2"],
   },
-  "Franco": {
-      "contraseña": "contraseña3",
-      "productosComprados": ["producto5"]
-  }
-};
+  {
+    usuario: "Franco",
+    contrasenia: "contraseña1",
+    productosComprados: ["producto1", "producto2"],
+  },
+];
