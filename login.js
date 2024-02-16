@@ -63,3 +63,18 @@ function cerrarVentanaLogin(){
     const tarjetaContainer = document.querySelector(".tarjeta-container");
     tarjetaContainer.remove();
 }
+
+const usuarios = {
+  "Gonzalo": {
+      "contraseña": "contraseña1",
+      "productosComprados": ["producto1", "producto2"]
+  },
+  "Nelson": {
+      "contraseña": "contraseña2",
+      "productosComprados": ["producto3", "producto4"]
+  },
+  "Franco": {
+      "contraseña": "contraseña3",
+      "productosComprados": ["producto5"]
+  }
+};
