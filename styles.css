@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: aquamarine;
   height: 100vh;
@@ -83,4 +84,41 @@ footer {
   color: blue;
   margin: 3px;
   cursor: pointer;
+}
+
+/* styles.css */
+.tarjeta-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Ajusta según sea necesario para que esté por encima del resto del contenido */
+}
+
+.tarjeta-sub-container {
+  text-align: center;
+}
+
+.tarjeta-sub-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.tarjeta-sub-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.tarjeta-sub-container button {
+  background: red;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }/*# sourceMappingURL=styles.css.map */
