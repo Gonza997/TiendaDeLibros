@@ -9,4 +9,4 @@
 - funcionalidad al boton de rango 
 - footer
 - header
-- Pomp para ver descripcion de cada libro
+- Pomp para ver descripcion de cada libro (listo)
