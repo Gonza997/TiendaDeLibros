@@ -164,12 +164,10 @@ function generos(data) {
 function mostrarModal(libro) {
     const modalContenido = {
         title: libro.volumeInfo.title, // Título del libro
-        body: `
-            
+        body: `            
             <p>Autor: ${libro.volumeInfo.authors ? libro.volumeInfo.authors.join(', ') : 'Autor Desconocido'}</p>
             <p>Resumen: ${libro.volumeInfo.description ? libro.volumeInfo.description : 'Sin Resumen Disponible'}</p>
-            <!-- Agregar más información del libro según sea necesario -->
-        `
+            `
     };
 
     // Mostrar el modal
@@ -180,10 +178,10 @@ function abrirModal(contenido) {
     console.log(contenido);
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
-    
+
     modalTitle.textContent = contenido.title; // Asignar el título del contenido al título del modal
     modalBody.innerHTML = contenido.body; // Asignar el cuerpo del contenido al cuerpo del modal
-    
+
     const modal = new bootstrap.Modal(document.getElementById('myModal')); // Obtener el modal
     modal.show(); // Mostrar el modal
 }

@@ -29,21 +29,22 @@ function ventanaLogin() {
   botonSeguir.addEventListener("click", function () {
     const nombreUsuario = nombreInput.value;
     const contrasena = contrasenaInput.value;
-    let b = 1;
-    usuarios.forEach((indice) => {
-      if (nombreUsuario == indice.usuario && contrasena == indice.contrasenia) {
-        alert("Seguir");
-        b = 0;
-        // Llamamos a la funcion cerrar ventana
-        cerrarVentanaLogin();
-        return;
-      }
-    });
-    if (b == 1) {
-      alert("Error");
-    }
 
-  });
+    // Buscar el usuario en la lista de usuarios
+    const usuarioEncontrado = usuarios.find(indice => indice.usuario === nombreUsuario && indice.contrasenia === contrasena);
+
+    if (usuarioEncontrado) {
+        // Si se encuentra el usuario, mostrar un mensaje de éxito y seguir con la aplicación
+        alert("¡Bienvenido!");
+        cerrarVentanaLogin();
+        
+    } else {
+        // Si no se encuentra el usuario, mostrar un mensaje de error
+        alert("Error: Nombre de usuario o contraseña incorrectos");
+        cerrarVentanaLogin();
+    }
+});
+
 
   // Agregamos elementos en la tarjeta
   tarjetaSubConteiner.appendChild(nombreLabel);
