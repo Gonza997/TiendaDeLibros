@@ -1,0 +1,12 @@
+- crear carrousel (listo)
+- dar funcionalidad al boton de busqueda (Listo)
+- agregar boton de comprar(Listo)
+- crear ingreso de usuario (50%)
+- crear carrito de compras
+- crear carrousel de recomendaciones (listo)
+- dar estilos a la pagina
+- funcionalidad al boton de categoria (Listo)
+- funcionalidad al boton de rango 
+- footer
+- header
+- Pomp para ver descripcion de cada libro
