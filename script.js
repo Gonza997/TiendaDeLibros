@@ -175,7 +175,6 @@ function mostrarModal(libro) {
 }
 // Función para abrir el modal con contenido dinámico
 function abrirModal(contenido) {
-    console.log(contenido);
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
 

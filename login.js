@@ -33,19 +33,21 @@ function ventanaLogin() {
     // Buscar el usuario en la lista de usuarios
     const usuarioEncontrado = usuarios.find(indice => indice.usuario === nombreUsuario && indice.contrasenia === contrasena);
 
+
     if (usuarioEncontrado) {
-        // Si se encuentra el usuario, mostrar un mensaje de éxito y seguir con la aplicación
-        alert("¡Bienvenido!");
-        cerrarVentanaLogin();
-        
+      // Si se encuentra el usuario, mostrar un mensaje de éxito y seguir con la aplicación
+      alert("¡Bienvenido!");
+      cerrarVentanaLogin();
+      saludoUsuario(nombreUsuario);
+
     } else {
-        // Si no se encuentra el usuario, mostrar un mensaje de error
-        alert("Error: Nombre de usuario o contraseña incorrectos");
-        cerrarVentanaLogin();
+      // Si no se encuentra el usuario, mostrar un mensaje de error
+      alert("Error: Nombre de usuario o contraseña incorrectos");
+      cerrarVentanaLogin();
     }
-});
 
-
+    
+  });
   // Agregamos elementos en la tarjeta
   tarjetaSubConteiner.appendChild(nombreLabel);
   tarjetaSubConteiner.appendChild(nombreInput);
@@ -81,3 +83,9 @@ const usuarios = [
     productosComprados: ["producto1", "producto2"],
   },
 ];
+
+function saludoUsuario(nombre) {
+  let saludo = document.getElementById("ingreso");
+  saludo.innerHTML = " ";
+  saludo.textContent = `Hola ${nombre}`;
+}
