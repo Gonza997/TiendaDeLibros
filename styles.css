@@ -59,6 +59,10 @@ footer {
   color: red;
   font-size: 1rem;
 }
+.libros .libroDiv h3:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 .libros .libroDiv h5 {
   font-size: 1rem;
 }

@@ -114,8 +114,7 @@ function mostrarLibros(data, contenedorLibros) {
         } else {
             // El libro no tiene imágenes, 
             imagen.src = "./img/No_existe_imagen.png";
-
-        }       
+        }
 
         if (libro.saleInfo.saleability == "NOT_FOR_SALE" || !libro.saleInfo.listPrice) {
             precio.textContent = "NO DISPONIBLE";
@@ -130,7 +129,12 @@ function mostrarLibros(data, contenedorLibros) {
         libroDiv.appendChild(precio);
         libroDiv.appendChild(botonCompra);
         contenedorLibros.appendChild(libroDiv);
-    });
+
+        // Agregar evento de clic al título del libro para abrir el modal
+        titulo.addEventListener('click', () => {
+            mostrarModal(libro);
+        });
+    })
 }
 
 
@@ -156,6 +160,33 @@ function generos(data) {
     }
 }
 
+// Mostrar el modal con la información del libro
+function mostrarModal(libro) {
+    const modalContenido = {
+        title: libro.volumeInfo.title, // Título del libro
+        body: `
+            
+            <p>Autor: ${libro.volumeInfo.authors ? libro.volumeInfo.authors.join(', ') : 'Autor Desconocido'}</p>
+            <p>Resumen: ${libro.volumeInfo.description ? libro.volumeInfo.description : 'Sin Resumen Disponible'}</p>
+            <!-- Agregar más información del libro según sea necesario -->
+        `
+    };
+
+    // Mostrar el modal
+    abrirModal(modalContenido);
+}
+// Función para abrir el modal con contenido dinámico
+function abrirModal(contenido) {
+    console.log(contenido);
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    
+    modalTitle.textContent = contenido.title; // Asignar el título del contenido al título del modal
+    modalBody.innerHTML = contenido.body; // Asignar el cuerpo del contenido al cuerpo del modal
+    
+    const modal = new bootstrap.Modal(document.getElementById('myModal')); // Obtener el modal
+    modal.show(); // Mostrar el modal
+}
 
 
 // Iniciar la búsqueda al cargar la página
