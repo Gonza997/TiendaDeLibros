@@ -138,4 +138,8 @@ footer {
   background-color: rgba(255, 0, 0, 0.605);
   margin: auto;
   padding: 12px;
+}
+
+.btn-outline-dark {
+  margin-left: 5px;
 }/*# sourceMappingURL=styles.css.map */
