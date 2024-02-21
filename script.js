@@ -65,6 +65,8 @@ async function obtenerLibros(busqueda) {
 
 // Función para mostrar los libros
 function mostrarLibros(data, contenedorLibros) {
+    
+    
     data.items.forEach(libro => {
         const libroDiv = document.createElement("div");
         const imgDiv = document.createElement("div");
@@ -99,7 +101,7 @@ function mostrarLibros(data, contenedorLibros) {
 
         // Agregamos un botón para comprar
         const botonCompra = document.createElement("button");
-        botonCompra.textContent = "COMPRAR";
+        botonCompra.textContent = "AGREGAR";
         botonCompra.classList.add("claseDeCompra");
 
         // Agregamos el icono del carrito al botón

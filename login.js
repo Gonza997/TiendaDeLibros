@@ -40,6 +40,7 @@ function ventanaLogin() {
       cerrarVentanaLogin();
       saludoUsuario(nombreUsuario);
 
+
     } else {
       // Si no se encuentra el usuario, mostrar un mensaje de error
       alert("Error: Nombre de usuario o contraseña incorrectos");
@@ -82,10 +83,15 @@ const usuarios = [
     contrasenia: "contraseña1",
     productosComprados: ["producto1", "producto2"],
   },
+  {
+    usuario: "asd",
+    contrasenia: "asd",
+    productosComprados: ["producto1", "producto2"],
+  }
 ];
 
 function saludoUsuario(nombre) {
   let saludo = document.getElementById("ingreso");
   saludo.innerHTML = " ";
-  saludo.textContent = `Hola ${nombre}`;
+  saludo.textContent = `Hola ${nombre}`; 
 }

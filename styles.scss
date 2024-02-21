@@ -10,7 +10,12 @@ footer {
     bottom: 0px;
     background-color: rgb(185, 145, 145);
 }
-
+header{
+    background-color: red !important;
+}
+.navbar{
+    background-color: red !important;
+}
 .libros {
     display: flex;
     overflow-x: auto;
@@ -142,4 +147,10 @@ footer {
 
 .btn-outline-success {
     margin: 5px;
+}
+.carrito{
+    height: 30px;
+    &:hover{
+        cursor:pointer;
+    }    
 }
