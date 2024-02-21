@@ -131,4 +131,11 @@ footer {
 
 .btn-outline-success {
   margin: 5px;
+  color: black;
+}
+
+.container-fluid {
+  background-color: rgba(255, 0, 0, 0.605);
+  margin: auto;
+  padding: 12px;
 }/*# sourceMappingURL=styles.css.map */
