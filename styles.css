@@ -49,7 +49,7 @@ footer {
 }
 .libros .libroDiv .imgLibro img {
   width: 100%;
-  height: auto;
+  height: 270px;
   transition: transform 0.3s;
 }
 .libros .libroDiv .imgLibro:hover img {
@@ -65,19 +65,6 @@ footer {
 }
 .libros .libroDiv h5 {
   font-size: 1rem;
-}
-.libros .libroDiv .claseDeCompra {
-  margin: auto auto 4px auto;
-  border: none;
-  border-radius: 5px;
-  background-color: red;
-  color: aliceblue;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3px 15px;
-  max-width: 150px;
 }
 .libros .libroDiv .claseDeIcono {
   height: 15px;
@@ -141,5 +128,5 @@ footer {
 }
 
 .btn-outline-dark {
-  margin-left: 5px;
+  margin: 5px;
 }/*# sourceMappingURL=styles.css.map */

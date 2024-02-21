@@ -82,6 +82,11 @@ const usuarios = [
     contrasenia: "contraseña1",
     productosComprados: ["producto1", "producto2"],
   },
+  {
+    usuario: "asd",
+    contrasenia: "asd",
+    productosComprados: ["producto1", "producto2"],
+  },
 ];
 
 function saludoUsuario(nombre) {

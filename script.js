@@ -100,7 +100,7 @@ function mostrarLibros(data, contenedorLibros) {
         // Agregamos un botón para comprar
         const botonCompra = document.createElement("button");
         botonCompra.textContent = "COMPRAR";
-        botonCompra.classList.add("claseDeCompra");
+        botonCompra.classList.add("claseDeCompra","btn", "btn-outline-danger");
 
         // Agregamos el icono del carrito al botón
         const iconoCarrito = document.createElement("img");
