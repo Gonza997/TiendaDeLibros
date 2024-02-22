@@ -42,7 +42,7 @@ header{
 
             img {
                 width: 100%;
-                height: auto;
+                height: 270px; //anteriormente auto 
                 transition: transform 0.3s;
             }
         }
@@ -76,20 +76,20 @@ header{
         h5 {
             font-size: 1rem;
         }
-
-        .claseDeCompra {
-            margin: auto auto 4px auto;
-            border: none;
-            border-radius: 5px;
-            background-color: red;
-            color: aliceblue;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3px 15px;
-            max-width: 150px;
-        }
+        // "btn btn-outline-danger" utilizamos los botones de bootstrap
+        // .claseDeCompra {
+        //     margin: auto auto 4px auto;
+        //     border: none;
+        //     border-radius: 5px;
+        //     background-color: red;
+        //     color: aliceblue;
+        //     cursor: pointer;
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: center;
+        //     padding: 3px 15px;
+        //     max-width: 150px;
+        // }
 
         .claseDeIcono {
             height: 15px;
@@ -147,6 +147,32 @@ header{
 
 .btn-outline-success {
     margin: 5px;
+    color: black;
+}
+// NavBar 
+.container-fluid{
+    background-color: rgba(255, 0, 0, 0.605);
+    margin: auto;
+    padding: 12px;
+}
+.btn-outline-dark{
+    margin: 5px;
+    color: black;
+}
+// NavBar 
+.container-fluid{
+    background-color: rgba(255, 0, 0, 0.605);
+    margin: auto;
+    padding: 12px;
+}
+.btn-outline-dark{
+    margin: 5px;
+}
+.carrito{
+    height: 30px;
+    &:hover{
+        cursor:pointer;
+    }    
 }
 .carrito{
     height: 30px;

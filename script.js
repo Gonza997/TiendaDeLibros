@@ -98,7 +98,7 @@ function mostrarLibros(data, contenedorLibros) {
         // Agregamos un botón para comprar
         const botonCompra = document.createElement("button");
         botonCompra.textContent = "AGREGAR";
-        botonCompra.classList.add("claseDeCompra");
+        botonCompra.classList.add("claseDeCompra","btn", "btn-outline-danger");
         botonCompra.classList.add("botonCompra"); // Agregar una clase para identificar los botones de compra
         // Agregar el atributo data-titulo con el título del libro
         botonCompra.dataset.titulo = libro.volumeInfo.title;
