@@ -53,7 +53,7 @@
                                 -->
                             </ul>
                         </li>
-                       
+
                     </ul>
                     <!-- Ingreso de usuario -->
 
@@ -100,23 +100,39 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Agregar al Carrito</button>
+                    <button type="button" class="btn btn-primary botonCompra" >Agregar al Carrito</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!--Modal carrito de compras-->
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" id="modalCarrito">
-        
+    <div id="modalCarrito" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleCarrito">Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBodyCarrito">
+                    <p>....</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+                    <button type="button" class="btn btn-primary">Pagar Carrito</button>
+                </div>
+            </div>
+        </div>
     </div>
+
 
     <footer>
         <p>&copy; 2023 Tiendita de Libros de Gonza más compañia</p>
     </footer>
     <script src="script.js"></script>
     <script src="login.js"></script>
-    <script src="carrito.js"></script>
+   
+
 </body>
 
 </html>
