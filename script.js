@@ -242,6 +242,33 @@ carrito.addEventListener('click', () => {
     modal.show(); // Mostrar el modal
    
 });
+carrito.addEventListener('click', async () => {
+    const modal = new bootstrap.Modal(document.getElementById('modalCarrito')); // Obtener el modal
+    if (window.usuarioEncontrado) {
+        const tituloModalCarrito = document.getElementById('modalTitleCarrito');
+        tituloModalCarrito.textContent = `${window.nombreUsuario}`;
+        console.log(window.nombreUsuario);
+        console.log("1");
+
+        // Simular el pago utilizando la API mock
+        try {
+            const response = await fetch(URLPagos, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(listaLibrosCarrito) // Enviar los libros agregados al carrito como datos de pago
+            });
+            const data = await response.json();
+            console.log(data); // Aquí puedes manejar la respuesta de la API de pagos
+            // Mostrar algún mensaje de confirmación al usuario
+        } catch (error) {
+            console.error("Error al procesar el pago:", error);
+            // Mostrar algún mensaje de error al usuario
+        }
+    }
+    modal.show(); // Mostrar el modal
+});
 
 // Iniciar la búsqueda al cargar la página
 iniciarBusqueda();
