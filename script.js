@@ -3,7 +3,6 @@ let URLlibros = "https://www.googleapis.com/books/v1/volumes?q=";
 let URLPagos = "https://api.mocki.io/v1/b0435d6e";
 let cantidadPorPagina = 15;
 
-
 async function busquedaAvanzada(event) {
     event.preventDefault(); // Evitar que el formulario se envíe y la página se recargue
 
@@ -14,7 +13,7 @@ async function busquedaAvanzada(event) {
     console.log(busqueda); // Imprimir el término de búsqueda en la consola
 
     try {
-        resultados.innerHTML = " "; // Limpiar el contenido anterior de resultados
+        resultados.innerHTML = ""; // Limpiar el contenido anterior de resultados
         const tituloInput = document.createElement("h1"); // Crear un elemento <h1> para mostrar el título de la búsqueda
         const busquedaFinal = await obtenerLibros(busqueda); // Obtener los libros correspondientes al término de búsqueda
         BusquedaImput.textContent = busquedaDeNavbar; // Establecer el texto del título como el término de búsqueda
@@ -42,7 +41,7 @@ async function palabraAleatoria() {
     try {
         const response = await fetch("https://clientes.api.greenborn.com.ar/public-random-word");
         const data = await response.json();
-        console.log(data)
+        console.log(data);
         return data;
     } catch (error) {
         console.error("Error al obtener la palabra aleatoria:", error);
@@ -77,30 +76,34 @@ function mostrarLibros(data, contenedorLibros) {
         const imagen = document.createElement("img");
 
         // Limitamos el título a 12 palabras
-        const palabrasTitulo = libro.volumeInfo.title.split(' ');
-        let tituloLimitado = palabrasTitulo.slice(0, 12).join(' ');
+        const palabrasTitulo = libro.volumeInfo.title.split(" ");
+        let tituloLimitado = palabrasTitulo.slice(0, 12).join(" ");
         if (palabrasTitulo.length > 12) {
-            tituloLimitado += '...';
+            tituloLimitado += "...";
         }
         titulo.textContent = tituloLimitado;
 
         const autores = libro.volumeInfo.authors; // Obtener la información de autores
-        let limiteAutores = ''; // Inicializar una cadena para los autores limitados
+        let limiteAutores = ""; // Inicializar una cadena para los autores limitados
 
         // Verificar si la información de autores está definida y es un array con al menos un autor
         if (Array.isArray(autores) && autores.length > 0) {
-            limiteAutores = autores.slice(0, 2).join(', '); // Obtener los primeros dos autores y unirlos en una cadena
+            limiteAutores = autores.slice(0, 2).join(", "); // Obtener los primeros dos autores y unirlos en una cadena
         } else {
-            limiteAutores = 'Autor desconocido'; // Si no hay información de autores, establecer un valor predeterminado
+            limiteAutores = "Autor desconocido"; // Si no hay información de autores, establecer un valor predeterminado
         }
 
         autor.textContent = limiteAutores; // Asignar la cadena de autores al elemento autor
 
-
         // Agregamos un botón para comprar
         const botonCompra = document.createElement("button");
-        botonCompra.textContent = "COMPRAR";
+        botonCompra.textContent = "AGREGAR";
         botonCompra.classList.add("claseDeCompra","btn", "btn-outline-danger");
+        botonCompra.classList.add("botonCompra"); // Agregar una clase para identificar los botones de compra
+        // Agregar el atributo data-titulo con el título del libro
+        botonCompra.dataset.titulo = libro.volumeInfo.title;
+        // Agregar el atributo data-precio con el precio del libro
+        botonCompra.dataset.precio = libro.saleInfo?.listPrice?.amount || "Precio no disponible";
 
         // Agregamos el icono del carrito al botón
         const iconoCarrito = document.createElement("img");
@@ -109,14 +112,15 @@ function mostrarLibros(data, contenedorLibros) {
         iconoCarrito.classList.add("claseDeIcono");
         botonCompra.appendChild(iconoCarrito);
 
-        if (libro.volumeInfo.imageLinks && libro.volumeInfo.imageLinks.thumbnail) {//verificar si el libro tiene imagenes
+        if (libro.volumeInfo.imageLinks && libro.volumeInfo.imageLinks.thumbnail) {
+            // verificar si el libro tiene imágenes
             imagen.src = libro.volumeInfo.imageLinks.thumbnail;
         } else {
-            // El libro no tiene imágenes, 
+            // El libro no tiene imágenes,
             imagen.src = "./img/No_existe_imagen.png";
         }
 
-        if (libro.saleInfo.saleability == "NOT_FOR_SALE" || !libro.saleInfo.listPrice) {
+        if (libro.saleInfo?.saleability == "NOT_FOR_SALE" || !libro.saleInfo?.listPrice) {
             precio.textContent = "NO DISPONIBLE";
         } else {
             precio.textContent = libro.saleInfo.listPrice.amount + " " + libro.saleInfo.listPrice.currencyCode;
@@ -131,12 +135,28 @@ function mostrarLibros(data, contenedorLibros) {
         contenedorLibros.appendChild(libroDiv);
 
         // Agregar evento de clic al título del libro para abrir el modal
-        titulo.addEventListener('click', () => {
+        titulo.addEventListener("click", () => {
             mostrarModal(libro);
         });
-    })
-}
 
+        // Agregar evento de clic al botón de compra
+        botonCompra.addEventListener("click", event => {
+            console.log("Click en el botón de carrito");
+            const titulo = event.target.dataset.titulo;
+            const precio = event.target.dataset.precio;
+
+            const libroAgregado = {
+                tituloLibro: titulo,
+                precioLibro: precio
+            };
+
+            listaLibrosCarrito.push(libroAgregado);
+
+            // Actualizar el modal del carrito
+            actualizarModalCarrito();
+        });
+    });
+}
 
 function generos(data) {
     const dropdownMenu = document.getElementById("dropdown-menu");
@@ -165,26 +185,63 @@ function mostrarModal(libro) {
     const modalContenido = {
         title: libro.volumeInfo.title, // Título del libro
         body: `            
-            <p>Autor: ${libro.volumeInfo.authors ? libro.volumeInfo.authors.join(', ') : 'Autor Desconocido'}</p>
-            <p>Resumen: ${libro.volumeInfo.description ? libro.volumeInfo.description : 'Sin Resumen Disponible'}</p>
+            <p>Autor: ${libro.volumeInfo.authors ? libro.volumeInfo.authors.join(", ") : "Autor Desconocido"}</p>
+            <p>Resumen: ${
+                libro.volumeInfo.description ? libro.volumeInfo.description : "Sin Resumen Disponible"
+            }</p>
             `
     };
 
     // Mostrar el modal
     abrirModal(modalContenido);
 }
+
 // Función para abrir el modal con contenido dinámico
 function abrirModal(contenido) {
-    const modalTitle = document.getElementById('modalTitle');
-    const modalBody = document.getElementById('modalBody');
+    const modalTitle = document.getElementById("modalTitle");
+    const modalBody = document.getElementById("modalBody");
 
     modalTitle.textContent = contenido.title; // Asignar el título del contenido al título del modal
     modalBody.innerHTML = contenido.body; // Asignar el cuerpo del contenido al cuerpo del modal
 
-    const modal = new bootstrap.Modal(document.getElementById('myModal')); // Obtener el modal
+    const modal = new bootstrap.Modal(document.getElementById("myModal")); // Obtener el modal
     modal.show(); // Mostrar el modal
 }
 
+function actualizarModalCarrito() {
+    const contenedorModalCarrito = document.getElementById("modalBodyCarrito");
+
+    // Limpiar el contenido anterior del modal del carrito
+    contenedorModalCarrito.innerHTML = "";
+
+    listaLibrosCarrito.forEach(libro => {
+        // Crear elementos para mostrar la información del libro en el modal
+        const tituloLibroElemento = document.createElement("h4");
+        tituloLibroElemento.textContent = libro.tituloLibro;
+
+        const precioLibroElemento = document.createElement("p");
+        precioLibroElemento.textContent = `Precio: ${libro.precioLibro}`;
+
+        // Agregar los elementos al contenedor del modal del carrito
+        contenedorModalCarrito.appendChild(tituloLibroElemento);
+        contenedorModalCarrito.appendChild(precioLibroElemento);
+    });
+}
+const carrito = document.querySelector(".carrito");
+const botonCarrito = document.getElementById("botonCompra");
+const listaLibrosCarrito = [];
+
+carrito.addEventListener('click', () => {
+    const modal = new bootstrap.Modal(document.getElementById('modalCarrito')); // Obtener el modal
+    if (window.usuarioEncontrado) {
+        const tituloModalCarrito = document.getElementById('modalTitleCarrito');
+        tituloModalCarrito.textContent = `${window.nombreUsuario}`;
+        console.log(window.nombreUsuario);
+        console.log("1");
+    }
+    modal.show(); // Mostrar el modal
+   
+});
 
 // Iniciar la búsqueda al cargar la página
 iniciarBusqueda();

@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const inicioSesion = document.getElementById("sesion");
-  inicioSesion.addEventListener("click", ventanaLogin);
-});
 
+const inicioSesion = document.getElementById("sesion");
+inicioSesion.addEventListener("click", ventanaLogin);
+
+let usuarioEncontrado;
 function ventanaLogin() {
   // Creamos la tarjeta flotante con sus elementos
   const tarjetaContainer = document.createElement("div");
@@ -27,11 +27,11 @@ function ventanaLogin() {
 
   // Evento al hacer clic en el botón "Aceptar"
   botonSeguir.addEventListener("click", function () {
-    const nombreUsuario = nombreInput.value;
+    let nombreUsuario = nombreInput.value;
     const contrasena = contrasenaInput.value;
 
     // Buscar el usuario en la lista de usuarios
-    const usuarioEncontrado = usuarios.find(indice => indice.usuario === nombreUsuario && indice.contrasenia === contrasena);
+    usuarioEncontrado = usuarios.find(indice => indice.usuario === nombreUsuario && indice.contrasenia === contrasena);
 
 
     if (usuarioEncontrado) {
@@ -39,6 +39,9 @@ function ventanaLogin() {
       alert("¡Bienvenido!");
       cerrarVentanaLogin();
       saludoUsuario(nombreUsuario);
+      window.nombreUsuario = nombreUsuario;
+
+
 
     } else {
       // Si no se encuentra el usuario, mostrar un mensaje de error
@@ -46,7 +49,7 @@ function ventanaLogin() {
       cerrarVentanaLogin();
     }
 
-    
+
   });
   // Agregamos elementos en la tarjeta
   tarjetaSubConteiner.appendChild(nombreLabel);
@@ -59,11 +62,6 @@ function ventanaLogin() {
 
   // Agregamos la tarjeta al html
   document.body.appendChild(tarjetaContainer);
-}
-
-function cerrarVentanaLogin() {
-  const tarjetaContainer = document.querySelector(".tarjeta-container");
-  tarjetaContainer.remove();
 }
 
 const usuarios = [
@@ -87,6 +85,11 @@ const usuarios = [
     contrasenia: "asd",
     productosComprados: ["producto1", "producto2"],
   },
+  {
+    usuario: "asd",
+    contrasenia: "asd",
+    productosComprados: ["producto1", "producto2"],
+  }
 ];
 
 function saludoUsuario(nombre) {
@@ -94,3 +97,10 @@ function saludoUsuario(nombre) {
   saludo.innerHTML = " ";
   saludo.textContent = `Hola ${nombre}`;
 }
+
+function cerrarVentanaLogin() {
+  const tarjetaContainer = document.querySelector(".tarjeta-container");
+  tarjetaContainer.remove();
+}
+window.ventanaLogin = ventanaLogin;
+

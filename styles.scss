@@ -10,7 +10,12 @@ footer {
     bottom: 0px;
     background-color: rgb(185, 145, 145);
 }
-
+header{
+    background-color: red !important;
+}
+.navbar{
+    background-color: red !important;
+}
 .libros {
     display: flex;
     overflow-x: auto;
@@ -152,4 +157,26 @@ footer {
 }
 .btn-outline-dark{
     margin: 5px;
+    color: black;
+}
+// NavBar 
+.container-fluid{
+    background-color: rgba(255, 0, 0, 0.605);
+    margin: auto;
+    padding: 12px;
+}
+.btn-outline-dark{
+    margin: 5px;
+}
+.carrito{
+    height: 30px;
+    &:hover{
+        cursor:pointer;
+    }    
+}
+.carrito{
+    height: 30px;
+    &:hover{
+        cursor:pointer;
+    }    
 }
