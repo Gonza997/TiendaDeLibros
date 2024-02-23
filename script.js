@@ -243,8 +243,7 @@ carrito.addEventListener('click', () => {
    
 });
 carrito.addEventListener('click', async () => {
-    const modal = new bootstrap.Modal(document.getElementById('modalCarrito')); // Obtener el modal
-    if (window.usuarioEncontrado) {
+      if (window.usuarioEncontrado) {
         const tituloModalCarrito = document.getElementById('modalTitleCarrito');
         tituloModalCarrito.textContent = `${window.nombreUsuario}`;
         console.log(window.nombreUsuario);

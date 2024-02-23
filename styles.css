@@ -3,6 +3,12 @@ body {
   background-color: aquamarine;
   height: 100vh;
   font-size: 10px;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Establecer el alto mínimo del cuerpo al 100% de la altura visible del viewport */
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
@@ -10,6 +16,10 @@ footer {
   justify-content: center;
   bottom: 0px;
   background-color: rgb(185, 145, 145);
+}
+
+main {
+  flex: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
 }
 
 header {
@@ -148,45 +158,26 @@ header {
 
 .btn-outline-dark {
   margin: 5px;
-  color: black;
 }
-
-.container-fluid {
-  background-color: rgba(255, 0, 0, 0.605);
-  margin: auto;
-  padding: 12px;
-}
-
-.btn-outline-dark {
-  margin: 5px;
-  color: black;
-}
-
-.container-fluid {
-  background-color: rgba(255, 0, 0, 0.605);
-  margin: auto;
-  padding: 12px;
-}
-
-.btn-outline-dark {
-  margin: 5px;
-  color: black;
-}
-
-.container-fluid {
-  background-color: rgba(255, 0, 0, 0.605);
-  margin: auto;
-  padding: 12px;
-}
-
-.btn-outline-dark {
-  margin: 5px;
-}
-
 
 .carrito {
   height: 30px;
 }
 .carrito:hover {
   cursor: pointer;
+}
+
+.carrito {
+  height: 30px;
+}
+.carrito:hover {
+  cursor: pointer;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
 }/*# sourceMappingURL=styles.css.map */

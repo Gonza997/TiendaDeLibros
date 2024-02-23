@@ -2,6 +2,12 @@ body {
     background-color: aquamarine;
     height: 100vh;
     font-size: 10px;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    /* Establecer el alto mínimo del cuerpo al 100% de la altura visible del viewport */
+    display: flex;
+    flex-direction: column;
 }
 
 footer {
@@ -10,12 +16,17 @@ footer {
     bottom: 0px;
     background-color: rgb(185, 145, 145);
 }
-header{
+main {
+    flex: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
+}
+header {
     background-color: red !important;
 }
-.navbar{
+
+.navbar {
     background-color: red !important;
 }
+
 .libros {
     display: flex;
     overflow-x: auto;
@@ -68,7 +79,8 @@ header{
             color: red;
             font-size: 1rem;
         }
-        h3:hover{
+
+        h3:hover {
             cursor: pointer;
             text-decoration: underline;
         }
@@ -76,6 +88,7 @@ header{
         h5 {
             font-size: 1rem;
         }
+
         // "btn btn-outline-danger" utilizamos los botones de bootstrap
         // .claseDeCompra {
         //     margin: auto auto 4px auto;
@@ -149,34 +162,49 @@ header{
     margin: 5px;
     color: black;
 }
+
 // NavBar 
-.container-fluid{
+.container-fluid {
     background-color: rgba(255, 0, 0, 0.605);
     margin: auto;
     padding: 12px;
 }
-.btn-outline-dark{
+
+.btn-outline-dark {
     margin: 5px;
     color: black;
 }
+
 // NavBar 
-.container-fluid{
+.container-fluid {
     background-color: rgba(255, 0, 0, 0.605);
     margin: auto;
     padding: 12px;
 }
-.btn-outline-dark{
+
+.btn-outline-dark {
     margin: 5px;
 }
-.carrito{
+
+.carrito {
     height: 30px;
-    &:hover{
-        cursor:pointer;
-    }    
+
+    &:hover {
+        cursor: pointer;
+    }
 }
-.carrito{
+
+.carrito {
     height: 30px;
-    &:hover{
-        cursor:pointer;
-    }    
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
 }
