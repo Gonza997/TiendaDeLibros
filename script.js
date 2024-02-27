@@ -117,7 +117,7 @@ function mostrarLibros(data, contenedorLibros) {
             imagen.src = libro.volumeInfo.imageLinks.thumbnail;
         } else {
             // El libro no tiene imágenes,
-            imagen.src = "./img/No_existe_imagen.png";
+            imagen.src = "./img/vector.jpg";
         }
 
         if (libro.saleInfo?.saleability == "NOT_FOR_SALE" || !libro.saleInfo?.listPrice) {

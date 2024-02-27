@@ -1,210 +1,145 @@
 body {
-    background-color: aquamarine;
-    height: 100vh;
-    font-size: 10px;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    /* Establecer el alto mínimo del cuerpo al 100% de la altura visible del viewport */
-    display: flex;
-    flex-direction: column;
+  background-color: aquamarine;
+  height: 100vh;
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Establecer el alto mínimo del cuerpo al 100% de la altura visible del viewport */
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
-    display: flex;
-    justify-content: center;
-    bottom: 0px;
-    background-color: rgb(185, 145, 145);
+  display: flex;
+  justify-content: center;
+  bottom: 0px;
+  background-color: rgb(185, 145, 145);
 }
 main {
-    flex: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
-}
-header {
-    background-color: red !important;
+  flex: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
+ 
 }
 
 .navbar {
-    background-color: red !important;
+  background-color: rgba(255, 0, 0, 0.605);
 }
 
 .libros {
-    display: flex;
-    overflow-x: auto;
-    /* Permite el desplazamiento horizontal */
-    scroll-snap-type: x mandatory;
-    /* Hace que cada elemento del carrusel se desplace en una sola "parada" */
+  display: flex;
+  overflow-x: auto;
+  /* Permite el desplazamiento horizontal */
+  scroll-snap-type: x mandatory;
+  /* Hace que cada elemento del carrusel se desplace en una sola "parada" */
 
-    .libroDiv {
+  .libroDiv {
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    margin: 5px;
+    text-align: center;
+    width: fit-content;
+    max-width: 170px;
+    min-width: 170px;
+    overflow: hidden; //Oculta cualquier parte de la imagen que se salga del contenedor
 
-        border: 1px solid #ccc;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-        border-radius: 5px;
-        margin: 5px;
-        text-align: center;
-        width: fit-content;
-        max-width: 170px;
-        min-width: 170px;
-        overflow: hidden; //Oculta cualquier parte de la imagen que se salga del contenedor
+    .imgLibro {
+      width: 170px;
+      overflow: hidden;
 
-
-        .imgLibro {
-            width: 170px;
-            overflow: hidden;
-
-            img {
-                width: 100%;
-                height: 270px; //anteriormente auto 
-                transition: transform 0.3s;
-            }
-        }
-
-        .imgLibro:hover img {
-            transform: scale(1.2);
-        }
-
-        /*img {
-            height: 100%;
-            max-height: 1200px;
-            width: auto;
-            transition-property: all;
-            transition-duration: 0.5s;
-            transition-timing-function: linear;
-        }
-    
-        img:hover {
-            transform: scale(1.2);
-        }*/
-
-        h3 {
-            color: red;
-            font-size: 1rem;
-        }
-
-        h3:hover {
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        h5 {
-            font-size: 1rem;
-        }
-
-        // "btn btn-outline-danger" utilizamos los botones de bootstrap
-        // .claseDeCompra {
-        //     margin: auto auto 4px auto;
-        //     border: none;
-        //     border-radius: 5px;
-        //     background-color: red;
-        //     color: aliceblue;
-        //     cursor: pointer;
-        //     display: flex;
-        //     align-items: center;
-        //     justify-content: center;
-        //     padding: 3px 15px;
-        //     max-width: 150px;
-        // }
-
-        .claseDeIcono {
-            height: 15px;
-            width: 15px;
-            margin-left: 5px;
-        }
+      img {
+        width: 100%;
+        height: 270px; //anteriormente auto
+        transition: transform 0.3s;
+      }
     }
+
+    .imgLibro:hover img {
+      transform: scale(1.2);
+    }
+
+    h3 {
+      color: red;
+      font-size: 1rem;
+    }
+
+    h3:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    h5 {
+      font-size: 1rem;
+    }
+
+    .claseDeIcono {
+      height: 15px;
+      width: 15px;
+      margin-left: 5px;
+    }
+  }
 }
 
-
 .li-categorias {
-    color: blue;
-    margin: 3px;
-    cursor: pointer;
+  color: blue;
+  margin: 3px;
+  cursor: pointer;
 }
 
 /* styles.css */
 
 .tarjeta-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    /* Ajusta según sea necesario para que esté por encima del resto del contenido */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  /* Ajusta según sea necesario para que esté por encima del resto del contenido */
 }
 
 .tarjeta-sub-container {
-    text-align: center;
+  text-align: center;
 }
 
 .tarjeta-sub-container label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .tarjeta-sub-container input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
 }
 
 .tarjeta-sub-container button {
-    background: red;
-    color: #fff;
-    border: none;
-    padding: 10px;
+  background: red;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-outline-dark {
+  margin: 5px;
+}
+
+.carrito {
+  height: 30px;
+
+  &:hover {
     cursor: pointer;
-    border-radius: 5px;
-}
-
-.btn-outline-success {
-    margin: 5px;
-    color: black;
-}
-
-// NavBar 
-.container-fluid {
-    background-color: rgba(255, 0, 0, 0.605);
-    margin: auto;
-    padding: 12px;
-}
-
-.btn-outline-dark {
-    margin: 5px;
-    color: black;
-}
-
-// NavBar 
-.container-fluid {
-    background-color: rgba(255, 0, 0, 0.605);
-    margin: auto;
-    padding: 12px;
-}
-
-.btn-outline-dark {
-    margin: 5px;
-}
-
-.carrito {
-    height: 30px;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
-
-.carrito {
-    height: 30px;
-
-    &:hover {
-        cursor: pointer;
-    }
+  }
 }
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
 }

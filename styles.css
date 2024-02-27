@@ -22,12 +22,8 @@ main {
   flex: 1; /* Hace que el contenido principal ocupe todo el espacio restante */
 }
 
-header {
-  background-color: red !important;
-}
-
 .navbar {
-  background-color: red !important;
+  background-color: rgba(255, 0, 0, 0.605);
 }
 
 .libros {
@@ -48,18 +44,6 @@ header {
   max-width: 170px;
   min-width: 170px;
   overflow: hidden;
-  /*img {
-      height: 100%;
-      max-height: 1200px;
-      width: auto;
-      transition-property: all;
-      transition-duration: 0.5s;
-      transition-timing-function: linear;
-  }
-
-  img:hover {
-      transform: scale(1.2);
-  }*/
 }
 .libros .libroDiv .imgLibro {
   width: 170px;
@@ -134,37 +118,8 @@ header {
   border-radius: 5px;
 }
 
-.btn-outline-success {
-  margin: 5px;
-  color: black;
-}
-
-.container-fluid {
-  background-color: rgba(255, 0, 0, 0.605);
-  margin: auto;
-  padding: 12px;
-}
-
 .btn-outline-dark {
   margin: 5px;
-  color: black;
-}
-
-.container-fluid {
-  background-color: rgba(255, 0, 0, 0.605);
-  margin: auto;
-  padding: 12px;
-}
-
-.btn-outline-dark {
-  margin: 5px;
-}
-
-.carrito {
-  height: 30px;
-}
-.carrito:hover {
-  cursor: pointer;
 }
 
 .carrito {
